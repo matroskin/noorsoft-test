@@ -13,8 +13,8 @@ const UserTable = props => (
     </thead>
     <tbody>
       {props.users.length > 0 ? (
-        props.users.map(user => (
-          <tr key={user.id}>
+        props.users.map((user, i) => (
+          <tr key={i}>
             <td>{user.id}</td>
             <td>{user.name}</td>
             <td>{user.age}</td>
