@@ -1,33 +1,33 @@
 import React from 'react';
+import UserTableRow from './UserTableRow';
 import './UserTable.css';
 
-const UserTable = props => (
-  <table className="user-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      {props.users.length > 0 ? (
-        props.users.map((user, i) => (
-          <tr key={i}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.age}</td>
-            <td>{user.email}</td>
-          </tr>
-        ))
-      ) : (
+function UserTable(props) {
+  return (
+    <table className="user-table">
+      <thead>
         <tr>
-          <td colSpan={4}>No users.</td>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Actions</th>
         </tr>
-      )}
-    </tbody>
-  </table>
-);
+      </thead>
+
+      <tbody>
+        {props.users.length > 0 ? (
+          props.users.map((user, i) => (
+            <UserTableRow key={i} user={user} />
+          ))
+        ) : (
+          <tr>
+            <td colSpan={5}>No users.</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  );
+}
 
 export default UserTable;
