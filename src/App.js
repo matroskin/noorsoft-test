@@ -12,6 +12,25 @@ class App extends Component {
     this.state = {
       users: usersData
     };
+
+    this.handleAdd = this.handleAdd.bind(this);
+  }
+
+  nextId() {
+    this._nextId = this._nextId || this.state.users.length + 1;
+    return this._nextId++;
+  }
+
+  handleAdd(age, name, email) {
+    let user = {
+      id: this.nextId(),
+      age,
+      name,
+      email
+    }
+    let users = [...this.state.users, user];
+
+    this.setState({ users });
   }
 
   render() {
@@ -19,15 +38,12 @@ class App extends Component {
       <div className="main">
         <Header title='Users' />
 
-        <UserTable users={this.state.users} />
+        <UserTable
+          users={this.state.users}
+        />
 
         <AddUser
-          id={this.state.users.length}
-          onSubmit={submission =>
-            this.setState({
-              users: [...this.state.users, submission]
-            })
-          }
+          onAdd={this.handleAdd}
         />
       </div>
     );

@@ -1,65 +1,73 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './AddUser.css';
 
 class AddUser extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      id: null,
-      age: "",
-      name: "",
-      email: ""
+      age: '',
+      name: '',
+      email: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  change = event => {
+  handleSubmit(event) {
+    event.preventDefault();
+
+    let age = this.state.age;
+    let name = this.state.name;
+    let email = this.state.email;
+
+    this.props.onAdd(age, name, email);
+
     this.setState({
-      id: this.props.id + 1,
+      age: '',
+      name: '',
+      email: ''
+    });
+  }
+
+  handleChange(event) {
+    this.setState({
       [event.target.name]: event.target.value
     });
-  };
-
-  onSubmit = event => {
-    event.preventDefault();
-    this.props.onSubmit(this.state);
-    // clear form
-    this.setState({
-      id: "",
-      age: "",
-      name: "",
-      email: ""
-    });
-  };
+  }
 
   render() {
     return (
-      <form className="add-user">
+      <form className="add-user" onSubmit={this.handleSubmit}>
         <label htmlFor="age">Age</label>
         <input
           type="text"
           name="age"
           id="age"
           value={this.state.age}
-          onChange={event => this.change(event)}
+          onChange={this.handleChange}
         />
+
         <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
           id="name"
           value={this.state.name}
-          onChange={event => this.change(event)}
+          onChange={this.handleChange}
         />
+
         <label htmlFor="email">Email</label>
         <input
           type="text"
           name="email"
           id="email"
           value={this.state.email}
-          onChange={event => this.change(event)}
+          onChange={this.handleChange}
         />
-        <button onClick={event => this.onSubmit(event)}>Add user</button>
+
+        <button type="submit">add user</button>
       </form>
     );
   }
