@@ -8,7 +8,9 @@ function UserTableRow(props) {
       <td>{props.user.name}</td>
       <td>{props.user.age}</td>
       <td>{props.user.email}</td>
-      <td></td>
+      <td>
+        <button onClick={() => props.onDelete(props.user.id)}>delete</button>
+      </td>
     </tr>
   );
 }

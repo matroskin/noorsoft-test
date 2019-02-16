@@ -18,7 +18,7 @@ function UserTable(props) {
       <tbody>
         {props.users.length > 0 ? (
           props.users.map((user, i) => (
-            <UserTableRow key={i} user={user} />
+            <UserTableRow key={i} user={user} onDelete={props.onDelete} />
           ))
         ) : (
           <tr>

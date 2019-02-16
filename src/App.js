@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   nextId() {
@@ -33,6 +34,12 @@ class App extends Component {
     this.setState({ users });
   }
 
+  handleDelete(id) {
+    let users = this.state.users.filter(user => user.id !== id);
+
+    this.setState({ users });
+  }
+
   render() {
     return (
       <div className="main">
@@ -40,6 +47,7 @@ class App extends Component {
 
         <UserTable
           users={this.state.users}
+          onDelete={this.handleDelete}
         />
 
         <AddUser
