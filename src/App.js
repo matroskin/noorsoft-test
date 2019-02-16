@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './components/Header';
 import UserTable from './components/UserTable';
 import AddUser from './components/AddUser';
 import usersData from './data/usersData.json';
@@ -15,10 +16,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="header">
-          <h2>Users</h2>
-        </div>
+      <div className="main">
+        <Header title='Users' />
 
         <UserTable users={this.state.users} />
 
