@@ -14,6 +14,7 @@ class App extends Component {
     };
 
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -29,7 +30,23 @@ class App extends Component {
       name,
       email
     }
+
     let users = [...this.state.users, user];
+
+    this.setState({ users });
+  }
+
+  handleEdit(id, name, age, email) {
+    let users = this.state.users.map(user => {
+      if (user.id === id) {
+        user.id = id;
+        user.name = name;
+        user.age = age;
+        user.email = email;
+      }
+
+      return user;
+    });
 
     this.setState({ users });
   }
@@ -47,6 +64,7 @@ class App extends Component {
 
         <UserTable
           users={this.state.users}
+          onEdit={this.handleEdit}
           onDelete={this.handleDelete}
         />
 
