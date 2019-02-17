@@ -6,6 +6,9 @@
     "react-scripts": "1.0.7"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
@@ -14,5 +17,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
