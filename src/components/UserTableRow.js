@@ -15,12 +15,11 @@ class UserTableRow extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let id = Number(this.refs.id.value);
     let name = this.refs.name.value;
     let age = this.refs.age.value;
     let email = this.refs.email.value;
 
-    this.props.onEdit(id, name, age, email);
+    this.props.onEdit(this.props.user.id, name, age, email);
 
     this.setState({ editing: false });
   }
@@ -42,11 +41,7 @@ class UserTableRow extends Component {
       <tr>
         <td colSpan={5}>
           <form className="edit-user" onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              ref="id"
-              defaultValue={this.props.user.id}
-            />
+            {this.props.user.id}
             <input
               type="text"
               ref="name"

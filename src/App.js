@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   nextId() {
-    this._nextId = this._nextId || this.state.users.length + 1;
+    this._nextId = this._nextId || this.state.users[this.state.users.length - 1].id + 1;
     return this._nextId++;
   }
 
@@ -39,7 +39,6 @@ class App extends Component {
   handleEdit(id, name, age, email) {
     let users = this.state.users.map(user => {
       if (user.id === id) {
-        user.id = id;
         user.name = name;
         user.age = age;
         user.email = email;
