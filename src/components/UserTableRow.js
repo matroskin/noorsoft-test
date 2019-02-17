@@ -45,16 +45,19 @@ class UserTableRow extends Component {
             <input
               type="text"
               ref="name"
+              placeholder="name"
               defaultValue={this.props.user.name}
             />
             <input
               type="text"
               ref="age"
+              placeholder="age"
               defaultValue={this.props.user.age}
             />
             <input
               type="text"
               ref="email"
+              placeholder="email"
               defaultValue={this.props.user.email}
             />
             <button type="submit">save</button>

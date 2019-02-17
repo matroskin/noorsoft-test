@@ -1,0 +1,16 @@
+.user-table .edit-user {
+  text-align: center;
+  max-width: 1024px;
+  margin: 25px auto 20px;
+  display: flex;
+}
+.user-table .edit-user {
+  line-height: 50px;
+}
+.user-table .edit-user input {
+  margin: 0 10px;
+}
+.user-table .edit-user button {
+  margin: 0 10px;
+  height: 44px;
+}

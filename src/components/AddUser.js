@@ -45,6 +45,7 @@ class AddUser extends Component {
           type="text"
           name="age"
           id="age"
+          placeholder="age"
           value={this.state.age}
           onChange={this.handleChange}
         />
@@ -54,6 +55,7 @@ class AddUser extends Component {
           type="text"
           name="name"
           id="name"
+          placeholder="name"
           value={this.state.name}
           onChange={this.handleChange}
         />
@@ -63,11 +65,12 @@ class AddUser extends Component {
           type="text"
           name="email"
           id="email"
+          placeholder="email"
           value={this.state.email}
           onChange={this.handleChange}
         />
 
-        <button type="submit">add user</button>
+        <button type="submit">add&nbsp;user</button>
       </form>
     );
   }
