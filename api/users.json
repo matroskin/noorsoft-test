@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "age": 27,
     "name": "Juan",
+    "age": 27,
     "email": "elisabeth@olson.gq"
   },
   {
     "id": 2,
-    "age": 46,
     "name": "Melinda",
+    "age": 46,
     "email": "tonya@mcfarland.wf"
   },
   {
     "id": 3,
-    "age": 36,
     "name": "Jerome",
+    "age": 36,
     "email": "diana@hamrick.to"
   },
   {
     "id": 4,
-    "age": 39,
     "name": "Elsie",
+    "age": 39,
     "email": "jenny@o.mv"
   },
   {
     "id": 5,
-    "age": 37,
     "name": "Rhonda",
+    "age": 37,
     "email": "neal@bray.km"
   }
 ]

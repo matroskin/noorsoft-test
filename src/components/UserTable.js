@@ -1,10 +1,10 @@
 import React from 'react';
+import { Table } from 'reactstrap';
 import UserTableRow from './UserTableRow';
-import './UserTable.css';
 
 function UserTable(props) {
   return (
-    <table className="user-table">
+    <Table>
       <thead>
         <tr>
           <th>ID</th>
@@ -14,7 +14,6 @@ function UserTable(props) {
           <th>Actions</th>
         </tr>
       </thead>
-
       <tbody>
         {props.users.length > 0 ? (
           props.users.map((user, i) => (
@@ -26,7 +25,7 @@ function UserTable(props) {
           </tr>
         )}
       </tbody>
-    </table>
+    </Table>
   );
 }
 

@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import './AddUser.css';
+import {
+  Table,
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Input
+} from 'reactstrap';
 
 class AddUser extends Component {
   constructor(props) {
@@ -39,39 +48,66 @@ class AddUser extends Component {
 
   render() {
     return (
-      <form className="add-user" onSubmit={this.handleSubmit}>
-        <label htmlFor="age">Age</label>
-        <input
-          type="text"
-          name="age"
-          id="age"
-          placeholder="age"
-          value={this.state.age}
-          onChange={this.handleChange}
-        />
+      <Table>
+        <tbody>
+          <tr>
+            <td colSpan={5}>
+              <Form onSubmit={this.handleSubmit}>
+                <Container>
+                  <Row>
+                    <Col xs="1">
+                      #
+                    </Col>
 
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="name"
-          value={this.state.name}
-          onChange={this.handleChange}
-        />
+                    <Col xs="3">
+                      <FormGroup>
+                        <Input
+                          type="text"
+                          name="name"
+                          id="name"
+                          placeholder="Name"
+                          value={this.state.name}
+                          onChange={this.handleChange}
+                        />
+                      </FormGroup>
+                    </Col>
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="email"
-          value={this.state.email}
-          onChange={this.handleChange}
-        />
+                    <Col xs="2">
+                      <FormGroup>
+                        <Input
+                          type="text"
+                          name="age"
+                          id="age"
+                          placeholder="Age"
+                          value={this.state.age}
+                          onChange={this.handleChange}
+                        />
+                      </FormGroup>
+                    </Col>
 
-        <button type="submit">add&nbsp;user</button>
-      </form>
+                    <Col xs="3">
+                      <FormGroup>
+                        <Input
+                          type="text"
+                          name="email"
+                          id="email"
+                          placeholder="Email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                        />
+                      </FormGroup>
+                    </Col>
+
+                    <Col xs="3">
+                      <Button type="submit" color="success">add user</Button>
+                    </Col>
+                  </Row>
+                </Container>
+              </Form>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
     );
   }
 }

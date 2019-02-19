@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios';
 import Header from './components/Header';
 import UserTable from './components/UserTable';
 import AddUser from './components/AddUser';
-import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -25,8 +25,8 @@ class App extends Component {
       .catch(error => console.error(error.message));
   }
 
-  handleAdd(age, name, email) {
-    axios.post('/api/records', { age, name, email })
+  handleAdd(name, age, email) {
+    axios.post('/api/records', { name, age, email })
       .then(response => response.data)
       .then(user => {
         let users = [...this.state.users, user];
@@ -36,8 +36,8 @@ class App extends Component {
       .catch(error => console.error(error.message));
   }
 
-  handleEdit(id, age, name, email) {
-    axios.put(`/api/records/${id}`, { age, name, email })
+  handleEdit(id, name, age, email) {
+    axios.put(`/api/records/${id}`, { name, age, email })
       .then(response => {
         let users = this.state.users.map(user => {
           if (user.id === id) {
@@ -64,19 +64,31 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
-        <Header title='Users' />
+      <Container>
+        <Row>
+          <Col>
+            <Header title='Users' />
+          </Col>
+        </Row>
 
-        <UserTable
-          users={this.state.users}
-          onEdit={this.handleEdit}
-          onDelete={this.handleDelete}
-        />
+        <Row>
+          <Col>
+          <UserTable
+            users={this.state.users}
+            onEdit={this.handleEdit}
+            onDelete={this.handleDelete}
+          />
+          </Col>
+        </Row>
 
-        <AddUser
-          onAdd={this.handleAdd}
-        />
-      </div>
+        <Row>
+          <Col>
+            <AddUser
+              onAdd={this.handleAdd}
+            />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
