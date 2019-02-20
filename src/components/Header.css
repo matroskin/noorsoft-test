@@ -1,7 +1,15 @@
 .header {
-  padding: 20px;
+  padding: 20px 0;
 }
 .header h2 {
   text-align: center;
 }
-
+.header .nav a {
+  margin-right: 15px;
+}
+.header .nav a:last-child {
+  margin-right: 0;
+}
+.header .nav a.active {
+  text-decoration: underline;
+}
