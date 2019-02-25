@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addUser } from '../actions';
 import {
   Table,
   Container,
@@ -15,8 +17,8 @@ class AddUser extends Component {
     super(props);
 
     this.state = {
-      age: '',
       name: '',
+      age: '',
       email: ''
     };
 
@@ -27,15 +29,15 @@ class AddUser extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let age = this.state.age;
     let name = this.state.name;
+    let age = this.state.age;
     let email = this.state.email;
 
-    this.props.onAdd(age, name, email);
+    this.props.onAdd(name, age, email);
 
     this.setState({
-      age: '',
       name: '',
+      age: '',
       email: ''
     });
   }
@@ -112,4 +114,10 @@ class AddUser extends Component {
   }
 }
 
-export default AddUser;
+function mapDispatchToProps(dispatch) {
+  return {
+    onAdd: (name, age, email) => dispatch(addUser(name, age, email))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(AddUser);

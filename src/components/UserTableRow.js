@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { deleteUser, editUser } from '../actions';
 import {
   Container,
   Row,
@@ -106,4 +108,11 @@ class UserTableRow extends Component {
   }
 }
 
-export default UserTableRow;
+function mapDispatchToProps(dispatch) {
+  return {
+    onDelete: (id) => dispatch(deleteUser(id)),
+    onEdit: (id, name, age, email) => dispatch(editUser(id, name, age, email))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(UserTableRow);
