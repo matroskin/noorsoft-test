@@ -16,7 +16,6 @@ setTimeout(function tick() {
   setTimeout(tick, 30000);
 });
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
